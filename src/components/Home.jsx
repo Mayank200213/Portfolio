@@ -14,7 +14,7 @@ export default function Home({ id }) {
   const confirmDownload = () => {
     setShowModal(false);
     const link = document.createElement('a');
-    link.href = '/Mayank-Sangolkar-Resume.pdf';
+    link.href = 'public/Mayank-Sangolkar-Resume.pdf';
     link.download = 'Mayank-Sangolkar-Resume.pdf';
     link.click();
   };
