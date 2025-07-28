@@ -78,40 +78,44 @@ export default function About({ id }) {
 
           {/* Skills Section */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="mb-20"
-          >
-            <h2 className="text-3xl font-bold mb-10 text-center">Technical Skills</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {skills.map((skill, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 + index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                  className={`bg-gray-800/50 p-6 rounded-xl border border-gray-700/50 hover:border-${skill.color}-500/30 transition-all duration-300`}
-                >
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className={`bg-${skill.color}-900/20 p-3 rounded-lg`}>
-                      {skill.icon}
-                    </div>
-                    <h3 className="text-xl font-semibold">{skill.title}</h3>
-                  </div>
-                  <ul className="space-y-3 text-gray-300">
-                    {skill.items.map((item, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <span className={`w-2 h-2 bg-${skill.color}-400 rounded-full`}></span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.4 }}
+  className="mb-20 px-4 sm:px-8"
+>
+  <h2 className="text-4xl font-bold mb-12 text-center text-white tracking-wide underline decoration-blue-500 underline-offset-4">
+    Technical Skills
+  </h2>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {skills.map((skill, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 + index * 0.1 }}
+        whileHover={{ y: -8, scale: 1.03 }}
+        className={`p-6 rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-800 via-gray-900 to-black shadow-md hover:shadow-${skill.color}-500/30 transition-all duration-300`}
+      >
+        <div className="flex items-center gap-4 mb-6">
+          <div className={`bg-${skill.color}-900/30 p-4 rounded-lg text-${skill.color}-400`}>
+            {skill.icon}
+          </div>
+          <h3 className="text-2xl font-semibold text-white">{skill.title}</h3>
+        </div>
+        <ul className="space-y-3 text-gray-300 pl-1">
+          {skill.items.map((item, i) => (
+            <li key={i} className="flex items-center gap-2">
+              <span className={`w-2 h-2 mt-1 bg-${skill.color}-400 rounded-full animate-pulse`}></span>
+              <span className="text-sm">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </motion.div>
+    ))}
+  </div>
           </motion.div>
+
 
           {/* Experience Section */}
           <motion.div
